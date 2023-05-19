@@ -1,0 +1,85 @@
+import os
+import csv
+
+csvpath = os.path.join('Resources/election_data.csv')
+
+votes = []
+
+with open(csvpath) as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=",")
+
+    csv_header = next(csvreader)
+    #print(f"CSV Header: {csv_header}")
+
+    total_votes = 0
+
+    charles_votes = 0
+
+    diana_votes = 0
+
+    raymon_votes = 0
+
+    for row in csvreader:
+         #print(row)
+
+        votes.append(row[0])
+
+        #print(votes)
+
+
+        if row[2] == "Charles Casper Stockham":
+            charles_votes += 1
+
+        if row[2] == "Diana DeGette":
+            diana_votes += 1
+
+        if row[2] == "Raymon Anthony Doane":
+            raymon_votes += 1
+
+    for ballots in range(len(votes)):
+        total_votes += 1
+
+    #print(total_votes)
+
+    #print(charles_votes)
+
+    #print(diana_votes)
+    
+    #print(raymon_votes)
+
+    charles_p = round(((charles_votes / total_votes) * 100), 2)
+
+    diana_p = round(((diana_votes / total_votes) * 100), 2)
+
+    raymon_p = round(((raymon_votes / total_votes) * 100), 2)
+
+
+    print("Election Results")
+
+    print("-------------------------------------------------")
+
+    print(f"Total Votes: {total_votes}")        
+
+    print("-------------------------------------------------")
+
+    print(f"Charles Casper Stockham: {charles_p}% ({charles_votes})")
+
+    print(f"Diana DeGette: {diana_p}% ({diana_votes})")
+
+    print(f"Raymon Anthony Doane: {raymon_p}% ({raymon_votes})")
+
+    print("-------------------------------------------------")
+
+    print("Winner: Diana DeGette")
+
+
+output_path = os.path.join("Resources", "poll_results.txt")
+
+
+with open(output_path, 'w') as txtfile:
+
+    lines = ['Election Results\n', '-------------------------------------------------\n', f"Total Votes: {total_votes}\n", "-------------------------------------------------\n", f"Charles Casper Stockham: {charles_p}% ({charles_votes})\n", f"Diana DeGette: {diana_p}% ({diana_votes})\n", f"Raymon Anthony Doane: {raymon_p}% ({raymon_votes})\n", "-------------------------------------------------\n", "Winner: Diana DeGette\n"]
+
+    txtfile.writelines(lines)
+
+    txtfile.close()
