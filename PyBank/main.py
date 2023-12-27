@@ -1,4 +1,3 @@
-
 # import modules
 
 import os
@@ -82,7 +81,7 @@ with open(pybankcsv) as csvfile:
 
     ###print(average_profits)
 
-output_path = os.path.join("Resources", "bank_analysis.txt")
+output_path = os.path.join("Analysis", "bank_analysis.txt")
 
 
 with open(output_path, 'w') as txtfile:
