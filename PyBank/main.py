@@ -3,7 +3,7 @@
 import os
 import csv
 
-# impor csv file to variable
+# import csv file to variable
 
 pybankcsv = os.path.join("Resources", "budget_data.csv")
 
