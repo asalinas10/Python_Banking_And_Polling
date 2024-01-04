@@ -1,6 +1,6 @@
 # Python Banking and Polling
 
-In this challenge I wrote python scripts to analyze banking data called PyBank, as well as polling data called PyPoll.
+In this challenge I wrote Python scripts to analyze banking data called PyBank, as well as polling data called PyPoll.
 
 # Summary
 
